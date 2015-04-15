@@ -11,5 +11,9 @@ As Root:
 
      useradd -d /var/lib/asterisk -m -c "Asterisk PBX" -s /bin/bash asterisk
 	 
+3. Set asterisk user password:
+
+     passwd asterisk	 
+	 
 3. Add asterisk user to sudo group
 
