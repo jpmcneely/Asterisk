@@ -17,3 +17,4 @@ As Root:
 	 
 3. Add asterisk user to sudo group
 
+4, Run asterisk-build.sh
