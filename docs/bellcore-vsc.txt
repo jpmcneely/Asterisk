@@ -1,0 +1,53 @@
+Service						Tone	Pulse/rotary
+----------------------------------------------- ------- ------------
+Cancel forwarding[note 1]			*30	N/A
+Automatic forwarding[note 1]			*31	N/A
+Notify[note 1]					*32	N/A
+Intercom ring 1 (short short)[note 2]		*51	1151
+Intercom ring 2 (short short long)[note 2]	*52	1152
+Intercom ring 3 (short long short)[note 2]	*53	1153
+Extension hold[note 2]				*54	1154
+Malicious caller identification			*57	1157
+Call blocking					*60	1160
+Priority call					*61	1161
+Selective call acceptance			*62	1162
+Selective call forwarding			*63	1163
+Caller ID					*65	1165
+Continuous redial				*66	1166
+Number display blocking (per call)[note 3]	*67	1167
+Activate call forwarding on busy		*68	1168
+Last-call return (incoming)			*69	1169
+Call waiting disable[note 3]			*70	1170
+No-answer call transfer				*71	1171
+Usage sensitive three-way call			*71	1171
+Call forwarding: start				*72	1172
+Call forwarding: cancel				*73	1173
+Speed calling (8 numbers)			*74	1174
+Speed calling (30 numbers)			*75	1175
+Anonymous call rejection[note 4]		*77	1177
+Do not disturb					*78	1178
+Do not disturb disable				*79	1179
+Call blocking disable				*80	1180
+Priority call disable				*81	1181
+Caller ID (per call)[note 3][note 5]		*82	1182
+Selective call forwarding disable		*83	1183
+Caller ID disable				*85	1185
+Continuous redial cancel[note 6]		*86	1186
+Anonymous call rejection disable[note 4]	*87	1187
+Deactivate call forwarding on busy		*88	1188
+Last-call return cancel[note 6]			*89	1189
+Voice-mail					*98	1198
+
+Notes
+1. Code used for Cellular One service
+2. Found in Pac Bell territory. Intercom ring causes a distinctive
+   ring to be generated on the current line. Hold keeps a call
+    connected until another extension is picked up.
+3. Applied once before each call. Caller ID to 800 numbers cannot
+   be blocked.
+4. ACR blocks calls from those who blocked Caller ID (used in C&P
+   territory, for instance)
+5. Has been mandated to be the nationwide code for, "Send CLID info
+   regardless of the default setting on this phone line."
+6. Cancels further return attempts
+

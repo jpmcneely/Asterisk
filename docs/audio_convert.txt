@@ -1,0 +1,14 @@
+﻿# Sound file conversion
+
+sox yourfile.wav -r 8000 -c 1 yourfile.gsm
+
+# If sox is used, it has been recommended that you lower the volume a
+# bit and keep the file in wave format for improved quality. For our
+# samples, 50% sounded just right:
+
+sox inputfile.wav -r 8000 -s -c 1 -v 0.5 -w outputfile.wav resample -ql
+
+# Once the file is converted copy the file to the 
+# /var/lib/asterisk/sounds/custom folder and use it in your dialplan.
+
+
