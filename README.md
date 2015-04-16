@@ -15,6 +15,6 @@ As Root:
 
      passwd asterisk	 
 	 
-3. Add asterisk user to sudo group
+4. Add asterisk user to sudo group
 
-4, Run asterisk-build.sh
+5, Run asterisk-build.sh
