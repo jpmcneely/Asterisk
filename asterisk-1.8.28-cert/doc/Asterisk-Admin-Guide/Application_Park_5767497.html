@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asterisk Project : Application_Park</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Asterisk Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Asterisk-Command-Reference_5242900.html">Asterisk Command Reference</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Dialplan-Applications_5242903.html">Dialplan Applications</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Asterisk Project : Application_Park
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> wikibot</span> on Oct 29, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Application_Park-Park()">Park()</h1>
+
+<h3 id="Application_Park-Synopsis">Synopsis</h3>
+
+<p>Park yourself.</p>
+
+<h3 id="Application_Park-Description">Description</h3>
+
+<p>Used to park yourself (typically in combination with a supervised transfer to know the parking space).</p>
+
+<p>If you set the <code>PARKINGEXTEN</code> variable to a parking space extension in the parking lot, Park() will attempt to park the call on that extension. If the extension is already is in use then execution will continue at the next priority.</p>
+
+<p>If the <code>parkeddynamic</code> option is enabled in <code>features.conf</code> the following variables can be used to dynamically create new parking lots.</p>
+
+<p>If you set the <code>PARKINGDYNAMIC</code> variable and this parking lot exists then it will be used as a template for the newly created dynamic lot. Otherwise, the default parking lot will be used.</p>
+
+<p>If you set the <code>PARKINGDYNCONTEXT</code> variable then the newly created dynamic parking lot will use this context.</p>
+
+<p>If you set the <code>PARKINGDYNEXTEN</code> variable then the newly created dynamic parking lot will use this extension to access the parking lot.</p>
+
+<p>If you set the <code>PARKINGDYNPOS</code> variable then the newly created dynamic parking lot will use those parking postitions.</p>
+
+    <div class="aui-message hint shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            
+<p>This application must be used as the first extension priority to be recognized as a parking access extension. DTMF transfers and some channel drivers need this distinction to operate properly. The parking access extension in this case is treated like a dialplan hint.</p>
+
+                    </div>
+    </div>
+
+    <div class="aui-message hint shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            
+<p>Parking lots automatically create and manage dialplan extensions in the parking lot context. You do not need to explicitly use this application in your dialplan. Instead, all you should do is include the parking lot context in your dialplan.</p>
+
+                    </div>
+    </div>
+
+
+<h3 id="Application_Park-Syntax">Syntax</h3>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Park(timeout,return_context,return_exten,return_priority,options,parking_lot_name)</pre>
+</div></div>
+
+<h5 id="Application_Park-Arguments">Arguments</h5>
+
+<ul>
+	<li><code>timeout</code> - A custom parking timeout for this parked call. Value in milliseconds.</li>
+	<li><code>return_context</code> - The context to return the call to after it times out.</li>
+	<li><code>return_exten</code> - The extension to return the call to after it times out.</li>
+	<li><code>return_priority</code> - The priority to return the call to after it times out.</li>
+	<li><code>options</code> - A list of options for this parked call.
+	<ul>
+		<li><code>r</code> - Send ringing instead of MOH to the parked call.</li>
+		<li><code>R</code> - Randomize the selection of a parking space.</li>
+		<li><code>s</code> - Silence announcement of the parking space number.</li>
+	</ul>
+	</li>
+	<li><code>parking_lot_name</code> - Specify in which parking lot to park a call.<br />
+The parking lot used is selected in the following order:<br />
+1) parking_lot_name option<br />
+2) <code>PARKINGLOT</code> variable<br />
+3) <code>CHANNEL(parkinglot)</code> function (Possibly preset by the channel driver.)<br />
+4) Default parking lot.</li>
+</ul>
+
+
+<h3 id="Application_Park-SeeAlso">See Also</h3>
+
+<ul>
+	<li><a href="Application_ParkAndAnnounce_5767290.html">Application_ParkAndAnnounce</a></li>
+	<li><a href="Application_ParkedCall_5767496.html">Application_ParkedCall</a></li>
+</ul>
+
+
+
+<h3 id="Application_Park-ImportVersion">Import Version</h3>
+
+<p>This documentation was imported from Asterisk Version Unknown</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 16, 2014 11:36</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

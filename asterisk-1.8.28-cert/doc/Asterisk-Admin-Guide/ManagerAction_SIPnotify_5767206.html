@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asterisk Project : ManagerAction_SIPnotify</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Asterisk Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Asterisk-Command-Reference_5242900.html">Asterisk Command Reference</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AMI-Actions_5242915.html">AMI Actions</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Asterisk Project : ManagerAction_SIPnotify
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> wikibot</span> on Dec 27, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="ManagerAction_SIPnotify-SIPnotify">SIPnotify</h1>
+
+<h3 id="ManagerAction_SIPnotify-Synopsis">Synopsis</h3>
+
+<p>Send a SIP notify.</p>
+
+<h3 id="ManagerAction_SIPnotify-Description">Description</h3>
+
+<p>Sends a SIP Notify event.</p>
+
+<p>All parameters for this event must be specified in the body of this request via multiple Variable: name=value sequences.</p>
+
+
+<h3 id="ManagerAction_SIPnotify-Syntax">Syntax</h3>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Action: SIPnotify
+ActionID: &lt;value&gt;
+Channel: &lt;value&gt;
+Variable: &lt;value&gt;
+</pre>
+</div></div>
+
+<h5 id="ManagerAction_SIPnotify-Arguments">Arguments</h5>
+
+<ul>
+	<li><code>ActionID</code> - ActionID for this transaction. Will be returned.</li>
+	<li><code>Channel</code> - Peer to receive the notify.</li>
+	<li><code>Variable</code> - At least one variable pair must be specified. <em>name</em>=<em>value</em></li>
+</ul>
+
+
+<h3 id="ManagerAction_SIPnotify-SeeAlso">See Also</h3>
+
+<h3 id="ManagerAction_SIPnotify-ImportVersion">Import Version</h3>
+
+<p>This documentation was imported from Asterisk Version SVN-branch-1.8-r404456</p>
+                    </div>
+
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-10650007"></a>
+                                    <font class="smallfont"><p>Example:</p>
+
+<p>To restart phone at extension 1234<br />
+cli&gt; sip notify polycom-check-cfg 1234</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by lathama at Dec 27, 2010 12:55
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-10650019"></a>
+                                    <font class="smallfont"><p>For Polycom phones, the following setting setting must be changed in the sip.cfg configuration file:</p>
+
+<p>Default:</p>
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>voIpProt.SIP.specialEvent.checkSync.alwaysReboot=&quot;0&quot;
+</pre>
+</div></div>
+
+<p>Change to:</p>
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>voIpProt.SIP.specialEvent.checkSync.alwaysReboot=&quot;1&quot;
+</pre>
+</div></div></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by mdavenport at Dec 28, 2010 10:34
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 16, 2014 11:36</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

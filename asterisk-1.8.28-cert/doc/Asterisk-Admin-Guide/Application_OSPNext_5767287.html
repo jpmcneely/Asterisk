@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asterisk Project : Application_OSPNext</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Asterisk Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Asterisk-Command-Reference_5242900.html">Asterisk Command Reference</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Dialplan-Applications_5242903.html">Dialplan Applications</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Asterisk Project : Application_OSPNext
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> wikibot</span> on Oct 29, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Application_OSPNext-OSPNext()">OSPNext()</h1>
+
+<h3 id="Application_OSPNext-Synopsis">Synopsis</h3>
+
+<p>Lookup next destination by OSP.</p>
+
+<h3 id="Application_OSPNext-Description">Description</h3>
+
+<p>Looks up the next destination via OSP.</p>
+
+<p>Input variables:</p>
+
+<ul>
+	<li><code>OSPINHANDLE</code> - The inbound call OSP transaction handle.</li>
+	<li><code>OSPOUTHANDLE</code> - The outbound call OSP transaction handle.</li>
+	<li><code>OSPINTIMELIMIT</code> - The inbound call duration limit in seconds.</li>
+	<li><code>OSPOUTCALLIDTYPES</code> - The outbound Call-ID types.</li>
+	<li><code>OSPDESTREMAILS</code> - The number of remained destinations.<br />
+Output variables:</li>
+</ul>
+
+
+<ul>
+	<li><code>OSPOUTTECH</code> - The outbound channel technology.</li>
+	<li><code>OSPDESTINATION</code> - The destination IP address.</li>
+	<li><code>OSPOUTCALLING</code> - The outbound calling number.</li>
+	<li><code>OSPOUTCALLED</code> - The outbound called number.</li>
+	<li><code>OSPOUTNETWORKID</code> - The outbound destination network ID.</li>
+	<li><code>OSPOUTNPRN</code> - The outbound routing number.</li>
+	<li><code>OSPOUTNPCIC</code> - The outbound carrier identification code.</li>
+	<li><code>OSPOUTNPDI</code> - The outbound number portability database dip indicator.</li>
+	<li><code>OSPOUTSPID</code> - The outbound service provider identity.</li>
+	<li><code>OSPOUTOCN</code> - The outbound operator company number.</li>
+	<li><code>OSPOUTSPN</code> - The outbound service provider name.</li>
+	<li><code>OSPOUTALTSPN</code> - The outbound alternate service provider name.</li>
+	<li><code>OSPOUTMCC</code> - The outbound mobile country code.</li>
+	<li><code>OSPOUTMNC</code> - The outbound mobile network code.</li>
+	<li><code>OSPOUTTOKEN</code> - The outbound OSP token.</li>
+	<li><code>OSPDESTREMAILS</code> - The number of remained destinations.</li>
+	<li><code>OSPOUTTIMELIMIT</code> - The outbound call duration limit in seconds.</li>
+	<li><code>OSPOUTCALLID</code> - The outbound Call-ID. Only for H.323.</li>
+	<li><code>OSPDIALSTR</code> - The outbound Dial command string.<br />
+This application sets the following channel variable upon completion:</li>
+</ul>
+
+
+<ul>
+	<li><code>OSPNEXTSTATUS</code> - The status of the OSPNext attempt as a text string, one of
+	<ul>
+		<li>SUCCESS</li>
+		<li>FAILED</li>
+		<li>ERROR</li>
+	</ul>
+	</li>
+</ul>
+
+
+<h3 id="Application_OSPNext-Syntax">Syntax</h3>
+
+<h3 id="Application_OSPNext-SeeAlso">See Also</h3>
+
+<ul>
+	<li><a href="Application_OSPAuth_5767285.html">Application_OSPAuth</a></li>
+	<li><a href="Application_OSPLookup_5767286.html">Application_OSPLookup</a></li>
+	<li><a href="Application_OSPFinish_5767288.html">Application_OSPFinish</a></li>
+</ul>
+
+
+
+<h3 id="Application_OSPNext-ImportVersion">Import Version</h3>
+
+<p>This documentation was imported from Asterisk Version Unknown</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 16, 2014 11:36</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

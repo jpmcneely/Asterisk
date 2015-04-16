@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asterisk Project : Application_Pickup</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Asterisk Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Asterisk-Command-Reference_5242900.html">Asterisk Command Reference</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Dialplan-Applications_5242903.html">Dialplan Applications</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Asterisk Project : Application_Pickup
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> wikibot</span> on Oct 29, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Application_Pickup-Pickup()">Pickup()</h1>
+
+<h3 id="Application_Pickup-Synopsis">Synopsis</h3>
+
+<p>Directed extension call pickup.</p>
+
+<h3 id="Application_Pickup-Description">Description</h3>
+
+<p>This application can pickup a specified ringing channel. The channel to pickup can be specified in the following ways.</p>
+
+<p>1) If no <em>extension</em> targets are specified, the application will pickup a channel matching the pickup group of the requesting channel.</p>
+
+<p>2) If the <em>extension</em> is specified with a <em>context</em> of the special string <code>PICKUPMARK</code> (for example 10@PICKUPMARK), the application will pickup a channel which has defined the channel variable <code>PICKUPMARK</code> with the same value as <em>extension</em> (in this example, <code>10</code>).</p>
+
+<p>3) If the <em>extension</em> is specified with or without a <em>context</em>, the channel with a matching <em>extension</em> and <em>context</em> will be picked up. If no <em>context</em> is specified, the current context will be used.</p>
+
+    <div class="aui-message hint shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            
+<p>The <em>extension</em> is typically set on matching channels by the dial application that created the channel. The <em>context</em> is set on matching channels by the channel driver for the device.</p>
+
+                    </div>
+    </div>
+
+
+<h3 id="Application_Pickup-Syntax">Syntax</h3>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Pickup(extension&amp;extension2[&amp;...])</pre>
+</div></div>
+
+<h5 id="Application_Pickup-Arguments">Arguments</h5>
+
+<ul>
+	<li><code>targets</code>
+	<ul>
+		<li><code>extension</code> - Specification of the pickup target.
+		<ul>
+			<li><code>extension</code></li>
+			<li><code>context</code></li>
+		</ul>
+		</li>
+		<li><code>extension2</code> - Additional specifications of pickup targets.
+		<ul>
+			<li><code>extension2</code></li>
+			<li><code>context2</code></li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
+
+
+<h3 id="Application_Pickup-SeeAlso">See Also</h3>
+
+
+<h3 id="Application_Pickup-ImportVersion">Import Version</h3>
+
+<p>This documentation was imported from Asterisk Version Unknown</p>
+                    </div>
+
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-18415866"></a>
+                                    <font class="smallfont"><p>There seems to be a missing clause in this section.<br />
+&quot;...this application tries to find a channel which has defined a This application can pickup any ringing channel...&quot;</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by cassius@cassius.org at Sep 19, 2011 08:26
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 16, 2014 11:36</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

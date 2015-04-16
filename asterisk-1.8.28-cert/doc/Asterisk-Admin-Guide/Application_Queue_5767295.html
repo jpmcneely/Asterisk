@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asterisk Project : Application_Queue</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Asterisk Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Asterisk-Command-Reference_5242900.html">Asterisk Command Reference</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Dialplan-Applications_5242903.html">Dialplan Applications</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Asterisk Project : Application_Queue
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> wikibot</span> on Feb 20, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Application_Queue-Queue()">Queue()</h1>
+
+<h3 id="Application_Queue-Synopsis">Synopsis</h3>
+
+<p>Queue a call for a call queue.</p>
+
+<h3 id="Application_Queue-Description">Description</h3>
+
+<p>In addition to transferring the call, a call may be parked and then picked up by another user.</p>
+
+<p>This application will return to the dialplan if the queue does not exist, or any of the join options cause the caller to not enter the queue.</p>
+
+<p>This application does not automatically answer and should be preceeded by an application such as Answer(), Progress(), or Ringing().</p>
+
+<p>This application sets the following channel variable upon completion:</p>
+
+<ul>
+	<li><code>QUEUESTATUS</code> - The status of the call as a text string.
+	<ul>
+		<li>TIMEOUT</li>
+		<li>FULL</li>
+		<li>JOINEMPTY</li>
+		<li>LEAVEEMPTY</li>
+		<li>JOINUNAVAIL</li>
+		<li>LEAVEUNAVAIL</li>
+		<li>CONTINUE</li>
+	</ul>
+	</li>
+</ul>
+
+
+<h3 id="Application_Queue-Syntax">Syntax</h3>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Queue(queuename,options,URL,announceoverride,timeout,AGI,macro,gosub,rule,position)</pre>
+</div></div>
+
+<h5 id="Application_Queue-Arguments">Arguments</h5>
+
+<ul>
+	<li><code>queuename</code></li>
+	<li><code>options</code>
+	<ul>
+		<li><code>C</code> - Mark all calls as &quot;answered elsewhere&quot; when cancelled.</li>
+		<li><code>c</code> - Continue in the dialplan if the callee hangs up.</li>
+		<li><code>d</code> - data-quality (modem) call (minimum delay).</li>
+		<li><code>h</code> - Allow <strong>callee</strong> to hang up by pressing <code>*</code>.</li>
+		<li><code>H</code> - Allow <strong>caller</strong> to hang up by pressing <code>*</code>.</li>
+		<li><code>n</code> - No retries on the timeout; will exit this application and go to the next step.</li>
+		<li><code>i</code> - Ignore call forward requests from queue members and do nothing when they are requested.</li>
+		<li><code>I</code> - Asterisk will ignore any connected line update requests or any redirecting party update requests it may receive on this dial attempt.</li>
+		<li><code>r</code> - Ring instead of playing MOH. Periodic Announcements are still made, if applicable.</li>
+		<li><code>R</code> - Ring instead of playing MOH when a member channel is actually ringing.</li>
+		<li><code>t</code> - Allow the <strong>called</strong> user to transfer the calling user.</li>
+		<li><code>T</code> - Allow the <strong>calling</strong> user to transfer the call.</li>
+		<li><code>w</code> - Allow the <strong>called</strong> user to write the conversation to disk via Monitor.</li>
+		<li><code>W</code> - Allow the <strong>calling</strong> user to write the conversation to disk via Monitor.</li>
+		<li><code>k</code> - Allow the <strong>called</strong> party to enable parking of the call by sending the DTMF sequence defined for call parking in <code>features.conf</code>.</li>
+		<li><code>K</code> - Allow the <strong>calling</strong> party to enable parking of the call by sending the DTMF sequence defined for call parking in <code>features.conf</code>.</li>
+		<li><code>x</code> - Allow the <strong>called</strong> user to write the conversation to disk via MixMonitor.</li>
+		<li><code>X</code> - Allow the <strong>calling</strong> user to write the conversation to disk via MixMonitor.</li>
+	</ul>
+	</li>
+	<li><code>URL</code> - URL will be sent to the called party if the channel supports it.</li>
+	<li><code>announceoverride</code></li>
+	<li><code>timeout</code> - Will cause the queue to fail out after a specified number of seconds, checked between each <code>queues.conf</code> <em>timeout</em> and <em>retry</em> cycle.</li>
+	<li><code>AGI</code> - Will setup an AGI script to be executed on the calling party's channel once they are connected to a queue member.</li>
+	<li><code>macro</code> - Will run a macro on the called party's channel (the queue member) once the parties are connected.</li>
+	<li><code>gosub</code> - Will run a gosub on the called party's channel (the queue member) once the parties are connected.</li>
+	<li><code>rule</code> - Will cause the queue's defaultrule to be overridden by the rule specified.</li>
+	<li><code>position</code> - Attempt to enter the caller into the queue at the numerical position specified. <code>1</code> would attempt to enter the caller at the head of the queue, and <code>3</code> would attempt to place the caller third in the queue.</li>
+</ul>
+
+
+<h3 id="Application_Queue-SeeAlso">See Also</h3>
+
+<ul>
+	<li><a href="Application_Queue_5767295.html">Application_Queue</a></li>
+	<li><a href="Application_QueueLog_5767300.html">Application_QueueLog</a></li>
+	<li><a href="Application_AddQueueMember_5767296.html">Application_AddQueueMember</a></li>
+	<li><a href="Application_RemoveQueueMember_5767297.html">Application_RemoveQueueMember</a></li>
+	<li><a href="Application_PauseQueueMember_5767298.html">Application_PauseQueueMember</a></li>
+	<li><a href="Application_UnpauseQueueMember_5767299.html">Application_UnpauseQueueMember</a></li>
+	<li><a href="Function_QUEUE_VARIABLES_5767301.html">Function_QUEUE_VARIABLES</a></li>
+	<li><a href="Function_QUEUE_MEMBER_5767302.html">Function_QUEUE_MEMBER</a></li>
+	<li><a href="Function_QUEUE_MEMBER_COUNT_5767303.html">Function_QUEUE_MEMBER_COUNT</a></li>
+	<li><a href="Function_QUEUE_EXISTS_5767304.html">Function_QUEUE_EXISTS</a></li>
+	<li><a href="Function_QUEUE_WAITING_COUNT_5767305.html">Function_QUEUE_WAITING_COUNT</a></li>
+	<li><a href="Function_QUEUE_MEMBER_LIST_5767306.html">Function_QUEUE_MEMBER_LIST</a></li>
+	<li><a href="Function_QUEUE_MEMBER_PENALTY_5767307.html">Function_QUEUE_MEMBER_PENALTY</a></li>
+</ul>
+
+
+
+<h3 id="Application_Queue-ImportVersion">Import Version</h3>
+
+<p>This documentation was imported from Asterisk Version SVN-branch-1.8-r408447</p>
+                    </div>
+
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-22088123"></a>
+                                    <font class="smallfont"><p>Is it possible put parameters when using the AGI argument?</p>
+
+<p>Something like this..<br />
+Queue(queuename,,,,5,AGI(VARIABLE1,VARIABLE2))</p>
+
+<p>Thanks in advance.</p>
+
+<p>André Emerich</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by aemerich at Feb 19, 2013 13:34
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-22088126"></a>
+                                    <font class="smallfont"><p>The wiki is not meant for questions regarding deployment and configuration. As this page is automatically updated when the documentation for the Queue application is updated, any comments regarding its usage will be lost.</p>
+
+<p>If you have questions about deploying the Queue application, please e-mail the asterisk-users list.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by mjordan at Feb 20, 2013 10:54
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 16, 2014 11:36</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asterisk Project : Application_MixMonitor</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Asterisk Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Asterisk-Command-Reference_5242900.html">Asterisk Command Reference</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Dialplan-Applications_5242903.html">Dialplan Applications</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Asterisk Project : Application_MixMonitor
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> wikibot</span> on Oct 29, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Application_MixMonitor-MixMonitor()">MixMonitor()</h1>
+
+<h3 id="Application_MixMonitor-Synopsis">Synopsis</h3>
+
+<p>Record a call and mix the audio during the recording. Use of StopMixMonitor is required to guarantee the audio file is available for processing during dialplan execution.</p>
+
+<h3 id="Application_MixMonitor-Description">Description</h3>
+
+<p>Records the audio on the current channel to the specified file.</p>
+
+<p>This application does not automatically answer and should be preceeded by an application such as Answer or Progress().</p>
+
+    <div class="aui-message hint shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            
+<p>MixMonitor runs as an audiohook. In order to keep it running through a transfer, AUDIOHOOK_INHERIT must be set for the channel which ran mixmonitor. For more information, including dialplan configuration set for using AUDIOHOOK_INHERIT with MixMonitor, see the function documentation for AUDIOHOOK_INHERIT.</p>
+
+                    </div>
+    </div>
+
+<ul>
+	<li><code>MIXMONITOR_FILENAME</code> - Will contain the filename used to record.</li>
+</ul>
+
+
+<h3 id="Application_MixMonitor-Syntax">Syntax</h3>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>MixMonitor(filename.extension,options,command)</pre>
+</div></div>
+
+<h5 id="Application_MixMonitor-Arguments">Arguments</h5>
+
+<ul>
+	<li><code>file</code>
+	<ul>
+		<li><code>filename</code> - If <em>filename</em> is an absolute path, uses that path, otherwise creates the file in the configured monitoring directory from <code>asterisk.conf.</code></li>
+		<li><code>extension</code></li>
+	</ul>
+	</li>
+	<li><code>options</code>
+	<ul>
+		<li><code>a</code> - Append to the file instead of overwriting it.</li>
+		<li><code>b</code> - Only save audio to the file while the channel is bridged.</li>
+		<li><code>v</code> - Adjust the <strong>heard</strong> volume by a factor of <em>x</em> (range <code>-4</code> to <code>4</code>)
+		<ul>
+			<li><code>x</code></li>
+		</ul>
+		</li>
+		<li><code>V</code> - Adjust the <strong>spoken</strong> volume by a factor of <em>x</em> (range <code>-4</code> to <code>4</code>)
+		<ul>
+			<li><code>x</code></li>
+		</ul>
+		</li>
+		<li><code>W</code> - Adjust both, <strong>heard and spoken</strong> volumes by a factor of <em>x</em> (range <code>-4</code> to <code>4</code>)
+		<ul>
+			<li><code>x</code></li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li><code>command</code> - Will be executed when the recording is over.<br />
+Any strings matching <code>^{X</code>} will be unescaped to <code>X</code>.<br />
+All variables will be evaluated at the time MixMonitor is called.</li>
+</ul>
+
+
+<h3 id="Application_MixMonitor-SeeAlso">See Also</h3>
+
+<ul>
+	<li><a href="Application_Monitor_5767628.html">Application_Monitor</a></li>
+	<li><a href="Application_StopMixMonitor_5767279.html">Application_StopMixMonitor</a></li>
+	<li><a href="Application_PauseMonitor_5767631.html">Application_PauseMonitor</a></li>
+	<li><a href="Application_UnpauseMonitor_5767632.html">Application_UnpauseMonitor</a></li>
+	<li><a href="Function_AUDIOHOOK_INHERIT_5767385.html">Function_AUDIOHOOK_INHERIT</a></li>
+</ul>
+
+
+
+<h3 id="Application_MixMonitor-ImportVersion">Import Version</h3>
+
+<p>This documentation was imported from Asterisk Version Unknown</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 16, 2014 11:36</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

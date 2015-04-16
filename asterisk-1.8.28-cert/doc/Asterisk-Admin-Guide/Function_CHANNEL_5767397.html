@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asterisk Project : Function_CHANNEL</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Asterisk Project</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Asterisk-Command-Reference_5242900.html">Asterisk Command Reference</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Dialplan-Functions_5242906.html">Dialplan Functions</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Asterisk Project : Function_CHANNEL
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> wikibot</span> on Oct 29, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Function_CHANNEL-CHANNEL()">CHANNEL()</h1>
+
+<h3 id="Function_CHANNEL-Synopsis">Synopsis</h3>
+
+<p>Gets/sets various pieces of information about the channel.</p>
+
+<h3 id="Function_CHANNEL-Description">Description</h3>
+
+<p>Gets/sets various pieces of information about the channel, additional <em>item</em> may be available from the channel driver; see its documentation for details. Any <em>item</em> requested that is not available on the current channel will return an empty string.</p>
+
+
+<h3 id="Function_CHANNEL-Syntax">Syntax</h3>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>CHANNEL(item)</pre>
+</div></div>
+
+<h5 id="Function_CHANNEL-Arguments">Arguments</h5>
+
+<ul>
+	<li><code>item</code> - Standard items (provided by all channel technologies) are:
+	<ul>
+		<li><code>amaflags</code> - R/W the Automatic Message Accounting (AMA) flags on the channel. When read from a channel, the integer value will always be returned. When written to a channel, both the string format or integer value is accepted.
+		<ul>
+			<li><code>1</code> - OMIT</li>
+			<li><code>2</code> - BILLING</li>
+			<li><code>3</code> - DOCUMENTATION</li>
+		</ul>
+		</li>
+		<li><code>accountcode</code> - R/W the channel's account code.</li>
+		<li><code>audioreadformat</code> - R/O format currently being read.</li>
+		<li><code>audionativeformat</code> - R/O format used natively for audio.</li>
+		<li><code>audiowriteformat</code> - R/O format currently being written.</li>
+		<li><code>callgroup</code> - R/W call groups for call pickup.</li>
+		<li><code>channeltype</code> - R/O technology used for channel.</li>
+		<li><code>checkhangup</code> - R/O Whether the channel is hanging up (1/0)</li>
+		<li><code>language</code> - R/W language for sounds played.</li>
+		<li><code>musicclass</code> - R/W class (from musiconhold.conf) for hold music.</li>
+		<li><code>name</code> - The name of the channel</li>
+		<li><code>parkinglot</code> - R/W parkinglot for parking.</li>
+		<li><code>rxgain</code> - R/W set rxgain level on channel drivers that support it.</li>
+		<li><code>secure_bridge_signaling</code> - Whether or not channels bridged to this channel require secure signaling</li>
+		<li><code>secure_bridge_media</code> - Whether or not channels bridged to this channel require secure media</li>
+		<li><code>state</code> - R/O state for channel</li>
+		<li><code>tonezone</code> - R/W zone for indications played</li>
+		<li><code>transfercapability</code> - R/W ISDN Transfer Capability, one of:
+		<ul>
+			<li><code>SPEECH</code></li>
+			<li><code>DIGITAL</code></li>
+			<li><code>RESTRICTED_DIGITAL</code></li>
+			<li><code>3K1AUDIO</code></li>
+			<li><code>DIGITAL_W_TONES</code></li>
+			<li><code>VIDEO</code></li>
+		</ul>
+		</li>
+		<li><code>txgain</code> - R/W set txgain level on channel drivers that support it.</li>
+		<li><code>videonativeformat</code> - R/O format used natively for video</li>
+		<li><code>trace</code> - R/W whether or not context tracing is enabled, only available <strong>if CHANNEL_TRACE is defined</strong>.<br />
+chan_sip provides the following additional options:</li>
+		<li><code>peerip</code> - R/O Get the IP address of the peer.</li>
+		<li><code>recvip</code> - R/O Get the source IP address of the peer.</li>
+		<li><code>from</code> - R/O Get the URI from the From: header.</li>
+		<li><code>uri</code> - R/O Get the URI from the Contact: header.</li>
+		<li><code>useragent</code> - R/O Get the useragent.</li>
+		<li><code>peername</code> - R/O Get the name of the peer.</li>
+		<li><code>t38passthrough</code> - R/O <code>1</code> if T38 is offered or enabled in this channel, otherwise <code>0</code></li>
+		<li><code>rtpqos</code> - R/O Get QOS information about the RTP stream<br />
+This option takes two additional arguments:<br />
+Argument 1:<br />
+<code>audio</code> Get data about the audio stream<br />
+<code>video</code> Get data about the video stream<br />
+<code>text</code> Get data about the text stream<br />
+Argument 2:<br />
+<code>local_ssrc</code> Local SSRC (stream ID)<br />
+<code>local_lostpackets</code> Local lost packets<br />
+<code>local_jitter</code> Local calculated jitter<br />
+<code>local_maxjitter</code> Local calculated jitter (maximum)<br />
+<code>local_minjitter</code> Local calculated jitter (minimum)<br />
+{{local_normdevjitter}}Local calculated jitter (normal deviation)<br />
+<code>local_stdevjitter</code> Local calculated jitter (standard deviation)<br />
+<code>local_count</code> Number of received packets<br />
+<code>remote_ssrc</code> Remote SSRC (stream ID)<br />
+{{remote_lostpackets}}Remote lost packets<br />
+<code>remote_jitter</code> Remote reported jitter<br />
+<code>remote_maxjitter</code> Remote calculated jitter (maximum)<br />
+<code>remote_minjitter</code> Remote calculated jitter (minimum)<br />
+{{remote_normdevjitter}}Remote calculated jitter (normal deviation)<br />
+{{remote_stdevjitter}}Remote calculated jitter (standard deviation)<br />
+<code>remote_count</code> Number of transmitted packets<br />
+<code>rtt</code> Round trip time<br />
+<code>maxrtt</code> Round trip time (maximum)<br />
+<code>minrtt</code> Round trip time (minimum)<br />
+<code>normdevrtt</code> Round trip time (normal deviation)<br />
+<code>stdevrtt</code> Round trip time (standard deviation)<br />
+<code>all</code> All statistics (in a form suited to logging, but not for parsing)</li>
+		<li><code>rtpdest</code> - R/O Get remote RTP destination information.<br />
+This option takes one additional argument:<br />
+Argument 1:<br />
+<code>audio</code> Get audio destination<br />
+<code>video</code> Get video destination<br />
+<code>text</code> Get text destination<br />
+Defaults to <code>audio</code> if unspecified.</li>
+		<li><code>rtpsource</code> - R/O Get source RTP destination information.<br />
+This option takes one additional argument:<br />
+Argument 1:<br />
+<code>audio</code> Get audio destination<br />
+<code>video</code> Get video destination<br />
+<code>text</code> Get text destination<br />
+Defaults to <code>audio</code> if unspecified.<br />
+chan_iax2 provides the following additional options:</li>
+		<li><code>osptoken</code> - R/O Get the peer's osptoken.</li>
+		<li><code>peerip</code> - R/O Get the peer's ip address.</li>
+		<li><code>peername</code> - R/O Get the peer's username.</li>
+		<li><code>secure_signaling</code> - R/O Get the if the IAX channel is secured.</li>
+		<li><code>secure_media</code> - R/O Get the if the IAX channel is secured.<br />
+chan_dahdi provides the following additional options:</li>
+		<li><code>dahdi_channel</code> - R/O DAHDI channel related to this channel.</li>
+		<li><code>dahdi_span</code> - R/O DAHDI span related to this channel.</li>
+		<li><code>dahdi_type</code> - R/O DAHDI channel type, one of:
+		<ul>
+			<li><code>analog</code></li>
+			<li><code>mfc/r2</code></li>
+			<li><code>pri</code></li>
+			<li><code>pseudo</code></li>
+			<li><code>ss7</code></li>
+		</ul>
+		</li>
+		<li><code>keypad_digits</code> - R/O PRI Keypad digits that came in with the SETUP message.</li>
+		<li><code>reversecharge</code> - R/O PRI Reverse Charging Indication, one of:
+		<ul>
+			<li><code>-1</code> - None</li>
+			<li>{{ 1}} - Reverse Charging Requested</li>
+		</ul>
+		</li>
+		<li><code>no_media_path</code> - R/O PRI Nonzero if the channel has no B channel. The channel is either on hold or a call waiting call.</li>
+		<li><code>buffers</code> - W/O Change the channel's buffer policy (for the current call only)<br />
+This option takes two arguments:<br />
+Number of buffers,<br />
+Buffer policy being one of:<br />
+<code>full</code><br />
+<code>immediate</code><br />
+<code>half</code></li>
+		<li><code>echocan_mode</code> - W/O Change the configuration of the active echo canceller on the channel (if any), for the current call only.<br />
+Possible values are:<br />
+{{on}}Normal mode (the echo canceller is actually reinitalized)<br />
+{{off}}Disabled<br />
+{{fax}}FAX/data mode (NLP disabled if possible, otherwise completely disabled)<br />
+{{voice}}Voice mode (returns from FAX mode, reverting the changes that were made)</li>
+	</ul>
+	</li>
+</ul>
+
+
+<h3 id="Function_CHANNEL-SeeAlso">See Also</h3>
+
+
+<h3 id="Function_CHANNEL-ImportVersion">Import Version</h3>
+
+<p>This documentation was imported from Asterisk Version Unknown</p>
+                    </div>
+
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-19007143"></a>
+                                    <font class="smallfont"><p>DAHDI channel naming has changed since 1.8 and now contains the span (not the channel) - DAHDI/i&lt;span&gt;/&lt;exten&gt;-&lt;serial&gt;, but I need to log dahdi_channel too. How to get dahdi_channel and dahdi_span when calling from SIP to DAHDI (PRI)? </p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by gpuzankin@gmail.com at Dec 06, 2011 23:55
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 16, 2014 11:37</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>
